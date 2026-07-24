@@ -70,3 +70,13 @@ Se tiver testado uploads, esvazie o bucket antes (incluindo versões antigas) vi
 ## Próximos passos (lab05)
 
 Lambda disparada por evento de upload no S3 — o primeiro lab de automação orientada a evento (event-driven), conectando este bucket a uma função serverless.
+
+## Evidência de execução
+
+**Setup do ambiente e `terraform init`:**
+
+![setup e init](./docs/setup-and-init.png)
+
+**`terraform apply` criando os 6 recursos (bucket, versionamento, criptografia, bloqueio público, lifecycle e policy):**
+
+![apply complete](./docs/apply-complete.png)
