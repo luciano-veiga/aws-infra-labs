@@ -71,3 +71,17 @@ terraform destroy
 ## Próximos passos (lab04)
 
 S3 bucket com política de bucket (bucket policy) e versionamento habilitado, para proteção contra sobrescrita/exclusão acidental de dados.
+
+## Evidência de execução
+
+**`terraform apply` criando os 5 recursos:**
+
+![terraform apply](./docs/apply-complete.png)
+
+**Validação da policy via AWS CLI, confirmando o `Resource` restrito ao bucket específico:**
+
+![validação da policy via CLI](./docs/policy-validation.png)
+
+**`terraform destroy` limpando os recursos, seguido de commit e push:**
+
+![destroy e push](./docs/destroy-and-push.png)
