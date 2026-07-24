@@ -8,7 +8,7 @@ Cada pasta é um lab independente, com o objetivo de consolidar a base teórica 
 | Lab | Descrição | Status |
 |---|---|---|
 | [lab01-vpc](./lab01-vpc) | VPC com subnets pública e privada, Internet Gateway e route tables | ✅ |
-| lab02-ec2 | EC2 em subnet pública com security group restrito | 🔜 |
+| [lab02-ec2](./lab02-ec2) | EC2 em subnet pública com security group restrito ao meu IP | ✅ |
 | lab03-iam | IAM roles e policies com least privilege | 🔜 |
 | lab04-s3 | S3 bucket com política segura e versionamento | 🔜 |
 | lab05-lambda | Lambda disparada por evento no S3 | 🔜 |
