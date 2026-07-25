@@ -86,3 +86,9 @@ terraform destroy -var="my_ip=SEU_IP_AQUI/32"
 ## Próximos passos (lab03)
 
 IAM roles com least privilege — dar à instância apenas as permissões estritamente necessárias, em vez de uma role genérica com acesso total.
+
+## Evidência de execução
+
+**`terraform apply` criando os 7 recursos (VPC, subnet, security group e instância):**
+
+![apply complete](./docs/apply-complete.png)
