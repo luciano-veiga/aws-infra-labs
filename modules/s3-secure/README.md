@@ -61,7 +61,7 @@ Um exemplo completo de uso está em [`examples/s3-secure-basic`](../../examples/
 
 ### Comportamento intermitente observado no `ministack`
 
-Durante a validação deste módulo, um `terraform apply` concluiu com sucesso (5 recursos criados, sem erro), mas uma checagem manual logo em seguida (`aws s3api list-buckets` e `head-bucket`) não encontrou o bucket — sem nenhum log de exclusão no `ministack`. Um `terraform destroy` rodado nesse estado reportou "nada a destruir", como se o Terraform tivesse perdido o rastro do recurso.
+Durante a validação deste módulo, um `terraform apply` concluiu com sucesso (5 recursos criados, sem erro), mas uma checagem manual logo em seguida (`aws s3api list-buckets` e `head-bucket`) não encontrou o bucket sem nenhum log de exclusão no `ministack`. Um `terraform destroy` rodado nesse estado reportou "nada a destruir", como se o Terraform tivesse perdido o rastro do recurso.
 
 Para isolar a causa, cada recurso do módulo (bucket, versionamento, criptografia, public access block, bucket policy) foi testado individualmente via `aws s3api`, de forma sequencial — todos sobreviveram normalmente. Rodando o `apply` do módulo completo novamente, o bucket permaneceu estável (confirmado imediatamente e após 15s de espera), e o `destroy` subsequente funcionou sem problemas.
 
