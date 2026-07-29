@@ -1,0 +1,57 @@
+name: Terraform CI
+
+# Roda em todo push e pull request para main.
+# Não usa credenciais AWS: fmt e validate são checagens estáticas,
+# não tocam em infraestrutura real nem no ministack.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  fmt:
+    name: terraform fmt (check)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+
+      - name: Verificar formatação (recursivo, todo o repo)
+        run: terraform fmt -check -recursive -diff
+
+  validate:
+    name: terraform validate
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        directory:
+          - lab01-vpc
+          - lab02-ec2
+          - lab03-iam
+          - lab04-s3
+          - lab05-lambda
+          - modules/s3-secure
+          - examples/s3-secure-basic
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+
+      - name: terraform init (sem backend remoto)
+        working-directory: ${{ matrix.directory }}
+        run: terraform init -backend=false
+
+      - name: terraform validate
+        working-directory: ${{ matrix.directory }}
+        run: terraform validate
