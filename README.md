@@ -1,5 +1,7 @@
 # aws-infra-labs
 
+![Terraform CI](https://github.com/luciano-veiga/aws-infra-labs/actions/workflows/terraform-ci.yml/badge.svg)
+
 Laboratórios práticos de infraestrutura AWS provisionada via Terraform.
 Cada pasta é um lab independente, com o objetivo de consolidar a base teórica dos certificados **AWS Cloud Practitioner** e **AWS Solutions Architect – Associate** em prática real, documentando as decisões de arquitetura por trás de cada recurso.
 
